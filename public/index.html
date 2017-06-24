@@ -21,6 +21,12 @@
   <script src="scripts/app.js"></script>
   <script>
     const app = new SampleWebsocketPlanningPorkerApp();
+    // 
+    // github page has no websoket server. so set other running server address by default.
+    //
+    if (location.host.endsWith('github.io') && !localStorage.getItem('host')) {
+      localStorage.setItem('host', 'wss://websocket-planning-porker.herokuapp.com/socket');
+    }
     $(() => {
       app.start();
     });
