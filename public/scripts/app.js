@@ -60,6 +60,8 @@ class SampleWebsocketPlanningPorkerApp {
 
   /** create socket connection. */
   connect() {
+    this.el.$btnConnect.hide();
+    this.el.$btnDisconnect.show();
     this.setDispName(this.el.$tboxDispName.val());
     this.setHost(this.el.$tboxHost.val());
     this.setRoomName(this.el.$tboxRoomName.val());
@@ -80,6 +82,7 @@ class SampleWebsocketPlanningPorkerApp {
   }
 
   disconnect() {
+    this.applyConnected(false);
     if (!this.socket) { return; }
 
     this.socket.close();
@@ -98,8 +101,8 @@ class SampleWebsocketPlanningPorkerApp {
   }
 
   onConnect() {
-    
-    this.socketId = String(this.socket.id).replace(/^\/\w+?#/, '');this.joinRoom(this.roomName, this.dispName);
+    this.socketId = String(this.socket.id).replace(/^\/\w+?#/, '');
+    this.joinRoom(this.roomName, this.dispName);
     this.socket.on('roomOpen'   , (obj)      => this.onRoomOpen(obj));
     this.socket.on('disconnect' , ()         => this.onRoomClose());
     this.socket.on('data'       , (obj)      => this.onReceiveData(obj));
@@ -120,7 +123,6 @@ class SampleWebsocketPlanningPorkerApp {
   onRoomClose() {
     this.toast('closed.');
     this.disconnect();
-    this.applyConnected(false);
   }
 
   onReceiveData(obj) {
