@@ -87,15 +87,15 @@ Routes.init(app);
 
 // --- connect to Database ------------------------
 (() => {
-  // const connectString: string = process.env.MONGODB_URI;
-  // // mpromise (mongoose's default promise library) is deprecated,
-  // // plug in your own promise library instead.
-  // const mong = mongoose;
-  // mong['Promise'] = global.Promise;
-  // mongoose.connect(connectString, (err) => {
-  //   if (err) { console.log(err); }
-  //   else     { console.log('connected to database.'); }
-  // });
+  const connectString: string = process.env.MONGODB_URI;
+  // mpromise (mongoose's default promise library) is deprecated,
+  // plug in your own promise library instead.
+  const mong = mongoose;
+  mong['Promise'] = global.Promise;
+  mongoose.connect(connectString, (err) => {
+    if (err) { console.log(err); }
+    else     { console.log('connected to database.'); }
+  });
 })();
 // ------------------------------------------------
 

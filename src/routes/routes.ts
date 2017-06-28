@@ -7,7 +7,7 @@ import { Consts }           from '../consts/consts';
 export class Routes {
 
   public static init(app: express.Express) {
-    app.use('/index', IndexController.routes);
+    app.use('/index'    , IndexController.routes);
 
     // catch 404 and forward to error handler
     app.use((req, res, next) => {
@@ -18,6 +18,6 @@ export class Routes {
   }
 
   public static initSocket(io: SocketIO.Server) {
-    io.of('/socket').on('connection', (s) => SocketController.onConnection(s) );
+    io.of('/socket').on('connection'   , (s) => SocketController.onConnection(s));
   }
 }

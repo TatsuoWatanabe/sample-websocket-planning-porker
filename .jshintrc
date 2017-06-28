@@ -89,7 +89,8 @@
     "globals" : {
       "$"          : true,
       "io"         : true,
-      "Materialize": true
+      "Materialize": true,
+      "Chart"      : true
     } // additional predefined global variables
 
 }

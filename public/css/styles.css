@@ -1,3 +1,11 @@
+@media only screen and (min-width: 993px) {
+  .container {
+      width: 85%;
+  }
+}
+.app-color {
+  background-color: #00e676;
+}
 .no-margin {
   margin: 0;
 }
