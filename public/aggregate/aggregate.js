@@ -6,7 +6,7 @@ class Aggregate {
     // 
     // github page has no websoket server. so set other running server address by default.
     //
-    if (location.host.endsWith('github.io') && !localStorage.getItem('host')) {
+    if (location.host === 'tatsuowatanabe.github.io') {
       const otherHost = 'wss://websocket-planning-porker.herokuapp.com/socket';
       return otherHost;
     }
